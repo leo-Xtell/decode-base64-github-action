@@ -4,6 +4,10 @@ import * as fs from 'fs/promises'
 
 async function Run()
 {
+  if (!core.getInput('base64')) {
+    throw new Error('Base64 input is required.')
+  }
+
   const decoded = Buffer.from(core.getInput('base64'), 'base64')
   const environment = core.getInput('environment')
   const output = !!core.getInput('output-path') ? core.getInput('output-path') : tmp.tmpNameSync()
@@ -14,7 +18,7 @@ async function Run()
   core.setOutput('output-path', output)
 
   if (!!environment) {
-    process.env[environment] = decoded.toString()
+    core.exportVariable(environment, decoded.toString())
   }
 }
 

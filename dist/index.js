@@ -7283,6 +7283,9 @@ const tmp = __importStar(__nccwpck_require__(4566));
 const fs = __importStar(__nccwpck_require__(3292));
 function Run() {
     return __awaiter(this, void 0, void 0, function* () {
+        if (!core.getInput('base64')) {
+            throw new Error('Base64 input is required.');
+        }
         const decoded = Buffer.from(core.getInput('base64'), 'base64');
         const environment = core.getInput('environment');
         const output = !!core.getInput('output-path') ? core.getInput('output-path') : tmp.tmpNameSync();
@@ -7290,7 +7293,7 @@ function Run() {
         core.setOutput('decoded', decoded.toString());
         core.setOutput('output-path', output);
         if (!!environment) {
-            process.env[environment] = decoded.toString();
+            core.exportVariable(environment, decoded.toString());
         }
     });
 }
