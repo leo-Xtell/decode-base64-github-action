@@ -25,5 +25,6 @@ jobs:
           environment: 'DECODED'
 
       - run: |
+          cat ${{ steps.decode-base64.outputs.output-path }}
           echo "Environemt=$DECODED"
           echo "Output=${{ steps.decode-base64.outputs.decoded }}"
