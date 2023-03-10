@@ -1,6 +1,6 @@
 name: 'decode-base64-github-action'
 description: >
-  このアクションはBase64文字列を環境変数に設定、またはファイルに書き出すアクションです。
+  This action sets a Base64 string to an environment variable or writes it to a file.
 inputs:
   base64:
     description: >
@@ -11,6 +11,12 @@ inputs:
       デコードされた文字列を環境変数にも設定する場合は、このパラメーターに環境変数名を指定します。
       この値が設定されると、環境変数にデコード結果を設定します。
       省略された場合は、環境変数には設定されません。
+    required: false
+    default: ''
+  output-path:
+    description: >
+      デコードされた文字列を指定したファイルに出力する場合は、このパラメーターにパスを指定します。
+      省略された場合は、内部で設定されたパスが使用され `outputs.output-path` に渡されます。
     required: false
     default: ''
 outputs:

@@ -1,33 +1,30 @@
 # decode-base64-github-action
 
-このアクションはBase64文字列を環境変数に設定、またはファイルに書き出すアクションです。
+This action sets a Base64 string to an environment variable or writes it to a file.
 
 ## Usage
 
 ### Simple usage
 
 ```yml
+- uses: akiojin/decode-base64-github-action@v0.1.0
+  id: decode-base64
+  with:
+    base64: <Base64>
+- run: |
+    echo ${{ steps.decode-base64.outputs.decoded }}
+    cat ${{ steps.decode-base64.outputs.output-path }}
+```
+
+### 環境変数に設定する例
+
+```yml
 - uses: akiojin/decode-github-action@v0.1.0
   with:
     base64: <Base64>
-```
-
-### Usage temporary keychain
-
-```yml
-- usas: setup-temporary-keychain-github-action@v1
-  id: setup-temporary-keychain
-
-- uses: akiojin/setup-xcode-environment-github-action@v2
-  id: setup-xcode-environment
-  with:
-    type: 'enterprise'
-    app-identifier: com.exmple.App
-    team-id: ABC0123456
-    git-url: 'https://github.com/certificates'
-    git-passphase: ${{ secrets.APPLE_CERTIFICATE_GIT_PASSPHASE }}
-    keychain: ${{ steps.setup-temporary-keychain.outputs.keychain }}
-    keychain-password: ${{ steps.setup-temporary-keychain.outputs.keychain-password }}
+    environment: DECODED
+- run: |
+    echo $DECODED
 ```
 
 ## Arguments

@@ -1,15 +1,14 @@
 {
   "name": "@akiojin/decode-base64-github-action",
   "version": "0.0.0",
-  "description": "GitHub Actions to configure provisioning and other settings required when signing at build time",
+  "description": "This action sets a Base64 string to an environment variable or writes it to a file.",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/akiojin/decode-base64-github-action.git"
   },
   "keywords": [
-    "xcode",
-    "ios"
+    "base64"
   ],
   "author": "Akio Jinsenji <akio-jinsenji@cloud-creative-studios.com> (https://github.com/akiojin)",
   "license": "MIT",
