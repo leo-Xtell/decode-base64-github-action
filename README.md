@@ -64,7 +64,7 @@ This action sets a Base64 string to an environment variable or writes it to a fi
 ### outputs
 
 |Name|Type|Description|
-|:--|:--|:--|:--|
+|:--|:--|:--|
 |`decoded`|`string`|The decoded string is set.|
 |`output-path`|`string`|The file path where the decoded string was written out.|
 
