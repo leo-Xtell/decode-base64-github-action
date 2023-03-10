@@ -1,9 +1,9 @@
-name: Build
+name: Build & Test
 
 on: push
 
 jobs:
-  Build:
+  Build-And-Test:
     runs-on: ${{ matrix.OS }}
     timeout-minutes: 5
     strategy:
