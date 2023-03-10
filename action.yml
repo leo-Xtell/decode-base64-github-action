@@ -4,28 +4,28 @@ description: >
 inputs:
   base64:
     description: >
-      デコードするBase64文字列を指定します。
+      Specifies a Base64 string to decode.
     required: true
   environment:
     description: >
-      デコードされた文字列を環境変数にも設定する場合は、このパラメーターに環境変数名を指定します。
-      この値が設定されると、環境変数にデコード結果を設定します。
-      省略された場合は、環境変数には設定されません。
+      To also set the decoded string to an environment variable, specify the name of the environment variable in this parameter.
+      If this value is set, the environment variable will be set to the decoded result.
+      If omitted, the environment variable will not be set.
     required: false
     default: ''
   output-path:
     description: >
-      デコードされた文字列を指定したファイルに出力する場合は、このパラメーターにパスを指定します。
-      省略された場合は、内部で設定されたパスが使用され `outputs.output-path` に渡されます。
+      To output the decoded string to the specified file, specify a path in this parameter.
+      If omitted, the internally set path is used and passed to `outputs.output-path`.
     required: false
     default: ''
 outputs:
   decoded:
     description: >
-      デコードされた文字列が設定されます。
+      The decoded string is set.
   output-path:
     description: >
-      デコードされた文字列が書き出されたファイルパスです。
+      The file path where the decoded string was written out.
 runs:
   using: 'node16'
   main: 'dist/index.js'

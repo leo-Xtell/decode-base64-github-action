@@ -46,7 +46,6 @@ jobs:
           cat ${{ steps.decode-base64-3.outputs.output-path }}
 
       - uses: ./
-        id: decode-base64-4
         with:
           base64: ${{ secrets.BASE64 }}
           environment: DECODED
