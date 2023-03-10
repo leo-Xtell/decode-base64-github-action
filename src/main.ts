@@ -19,7 +19,7 @@ async function Run()
   core.setOutput('decoded', decoded)
   core.setOutput('output-path', path)
 
-  if (!!core.getInput('envrioment')) {
+  if (!!core.getInput('enviroment')) {
     process.env[core.getInput('enviroment')] = decoded.toString()
   }
 }

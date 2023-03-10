@@ -19,12 +19,19 @@ jobs:
       - run: npx @vercel/ncc build src/main.ts
 
       - uses: ./
-        id: decode-base64
+        id: decode-base64-1
+        with:
+          base64: ${{ secrets.BASE64 }}
+          output-path: ${{ runner.temp }}/tmp.txt
+      - run: |
+          cat ${{ steps.decode-base64-1.outputs.output-path }}
+
+      - uses: ./
+        id: decode-base64-2
         with:
           base64: ${{ secrets.BASE64 }}
           environment: 'DECODED'
-
       - run: |
-          cat ${{ steps.decode-base64.outputs.output-path }}
+          cat ${{ steps.decode-base64-2.outputs.output-path }}
           echo "Environemt=$DECODED"
-          echo "Output=${{ steps.decode-base64.outputs.decoded }}"
+          echo "Output=${{ steps.decode-base64-2.outputs.decoded }}"
