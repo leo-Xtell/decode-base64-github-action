@@ -1,0 +1,28 @@
+name: 'decode-base64-github-action'
+description: >
+  このアクションはBase64文字列を環境変数に設定、またはファイルに書き出すアクションです。
+inputs:
+  base64:
+    description: >
+      デコードするBase64文字列を指定します。
+    required: true
+  environment:
+    description: >
+      デコードされた文字列を環境変数にも設定する場合は、このパラメーターに環境変数名を指定します。
+      この値が設定されると、環境変数にデコード結果を設定します。
+      省略された場合は、環境変数には設定されません。
+    required: false
+    default: ''
+outputs:
+  decoded:
+    description: >
+      デコードされた文字列が設定されます。
+  output-path:
+    description: >
+      デコードされた文字列が書き出されたファイルパスです。
+runs:
+  using: 'node18'
+  main: 'dist/index.js'
+branding:
+  icon: "download"
+  color: "orange"
