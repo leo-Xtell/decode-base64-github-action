@@ -18,20 +18,38 @@ jobs:
       - run: npm install
       - run: npx @vercel/ncc build src/main.ts
 
-      - uses: ./
+      - name: Default Output
+        uses: ./
         id: decode-base64-1
+        with:
+          base64: ${{ secrets.BASE64 }}
+      - run: |
+          echo "Output=${{ steps.decode-base64-1.outputs.decoded }}"
+
+      - name: Default Output path
+        uses: ./
+        id: decode-base64-2
+        with:
+          base64: ${{ secrets.BASE64 }}
+      - run: |
+          echo "Path=${{ steps.decode-base64-2.outputs.output-path }}"
+          cat ${{ steps.decode-base64-2.outputs.output-path }}
+
+      - name: Output file path specification
+        uses: ./
+        id: decode-base64-3
         with:
           base64: ${{ secrets.BASE64 }}
           output-path: ${{ runner.temp }}/tmp.txt
       - run: |
-          cat ${{ steps.decode-base64-1.outputs.output-path }}
+          echo "Path=${{ steps.decode-base64-3.outputs.output-path }}" 
+          cat ${{ steps.decode-base64-3.outputs.output-path }}
 
-      - uses: ./
-        id: decode-base64-2
+      - name: Output environment
+        uses: ./
+        id: decode-base64-4
         with:
           base64: ${{ secrets.BASE64 }}
-          environment: 'DECODED'
+          environment: DECODED
       - run: |
-          cat ${{ steps.decode-base64-2.outputs.output-path }}
           echo "Environemt=$DECODED"
-          echo "Output=${{ steps.decode-base64-2.outputs.decoded }}"
