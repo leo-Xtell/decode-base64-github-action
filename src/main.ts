@@ -5,21 +5,13 @@ import * as fs from 'fs/promises'
 async function Run()
 {
   const decoded = Buffer.from(core.getInput('base64'), 'base64')
-  const output = core.getInput('output-path')
   const environment = core.getInput('environment')
+  const output = !!core.getInput('output-path') ? core.getInput('output-path') : tmp.tmpNameSync()
 
-  let path
-  
-  if (!!output) {
-    path = output
-  } else {
-    path = tmp.tmpNameSync()
-  }
+  await fs.writeFile(output, decoded)
 
-  await fs.writeFile(path, decoded)
-
-  core.setOutput('decoded', decoded)
-  core.setOutput('output-path', path)
+  core.setOutput('decoded', decoded.toString())
+  core.setOutput('output-path', output)
 
   if (!!environment) {
     process.env[environment] = decoded.toString()

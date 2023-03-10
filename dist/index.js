@@ -7284,18 +7284,11 @@ const fs = __importStar(__nccwpck_require__(3292));
 function Run() {
     return __awaiter(this, void 0, void 0, function* () {
         const decoded = Buffer.from(core.getInput('base64'), 'base64');
-        const output = core.getInput('output-path');
         const environment = core.getInput('environment');
-        let path;
-        if (!!output) {
-            path = output;
-        }
-        else {
-            path = tmp.tmpNameSync();
-        }
-        yield fs.writeFile(path, decoded);
-        core.setOutput('decoded', decoded);
-        core.setOutput('output-path', path);
+        const output = !!core.getInput('output-path') ? core.getInput('output-path') : tmp.tmpNameSync();
+        yield fs.writeFile(output, decoded);
+        core.setOutput('decoded', decoded.toString());
+        core.setOutput('output-path', output);
         if (!!environment) {
             process.env[environment] = decoded.toString();
         }
