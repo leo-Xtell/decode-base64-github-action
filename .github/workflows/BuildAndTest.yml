@@ -22,6 +22,8 @@ jobs:
         OS: [ ubuntu-latest, macos-latest, windows-latest ]
 
     steps:
+      - uses: actions/checkout@v3
+
       - uses: ./
         id: decode-base64-1
         with:
