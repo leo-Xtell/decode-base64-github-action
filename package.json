@@ -20,6 +20,9 @@
     "url": "https://github.com/akiojin/decode-base64-github-action/issues"
   },
   "homepage": "https://github.com/akiojin/decode-base64-github-action#readme",
+  "dependencies": {
+    "tmp": "0.2.1"
+  },
   "devDependencies": {
     "@actions/core": "1.10.0",
     "@actions/exec": "1.1.1",
