@@ -43,7 +43,7 @@ This action sets a Base64 string to an environment variable or writes it to a fi
 ### Example of setting an environment variable
 
 ```yml
-- uses: akiojin/decode-github-action@v0.1.0
+- uses: akiojin/decode-base64-github-action@v0.1.0
   with:
     base64: <Base64>
     environment: DECODED
