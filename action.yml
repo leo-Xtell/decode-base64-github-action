@@ -27,7 +27,7 @@ outputs:
     description: >
       The file path where the decoded string was written out.
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
 branding:
   icon: "download"
