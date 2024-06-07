@@ -9,17 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/akiojin/decode-base64-github-action.git"
+    "url": "https://github.com/leo-Xtell/decode-base64-github-action.git"
   },
   "keywords": [
     "base64"
   ],
-  "author": "Akio Jinsenji <akio-jinsenji@cloud-creative-studios.com> (https://github.com/akiojin)",
+  "author": "Leo Xtell <leo@example.com> (https://github.com/leo-Xtell)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/akiojin/decode-base64-github-action/issues"
+    "url": "https://github.com/leo-Xtell/decode-base64-github-action/issues"
   },
-  "homepage": "https://github.com/akiojin/decode-base64-github-action#readme",
+  "homepage": "https://github.com/leo-Xtell/decode-base64-github-action#readme",
   "dependencies": {
     "tmp": "0.2.3"
   },
