@@ -7,7 +7,7 @@ This action sets a Base64 string to an environment variable or writes it to a fi
 ### Simple usage
 
 ```yml
-- uses: akiojin/decode-base64-github-action@v0.1.0
+- uses: leo-Xtell/decode-base64-github-action@v0.1.0
   id: decode-base64
   with:
     base64: <Base64>
@@ -18,7 +18,7 @@ This action sets a Base64 string to an environment variable or writes it to a fi
 ### Example of default output path
 
 ```yml
-- uses: akiojin/decode-base64-github-action@v0.1.0
+- uses: leo-Xtell/decode-base64-github-action@v0.1.0
   id: decode-base64
   with:
     base64: <Base64>
@@ -30,7 +30,7 @@ This action sets a Base64 string to an environment variable or writes it to a fi
 ### Example of specifying a file path for output
 
 ```yml
-- uses: akiojin/decode-base64-github-action@v0.1.0
+- uses: leo-Xtell/decode-base64-github-action@v0.1.0
   id: decode-base64
   with:
     base64: <Base64>
@@ -43,7 +43,7 @@ This action sets a Base64 string to an environment variable or writes it to a fi
 ### Example of setting an environment variable
 
 ```yml
-- uses: akiojin/decode-base64-github-action@v0.1.0
+- uses: leo-Xtell/decode-base64-github-action@v0.1.0
   with:
     base64: <Base64>
     environment: DECODED
@@ -70,4 +70,4 @@ This action sets a Base64 string to an environment variable or writes it to a fi
 
 ## License
 
-Any contributions made under this project will be governed by the [MIT License](https://github.com/akiojin/decode-base64-github-action/blob/main/LICENSE).
+Any contributions made under this project will be governed by the [MIT License](https://github.com/leo-Xtell/decode-base64-github-action/blob/main/LICENSE).
